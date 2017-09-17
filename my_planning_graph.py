@@ -513,7 +513,6 @@ class PlanningGraph():
         :return: int
         """
         level_sum = 0
-        # TODO implement
         # for each goal in the problem, determine the level cost, then add them together
         for goal in self.problem.goal: # N.B this is bad naming
             goal_attained = False
@@ -521,7 +520,7 @@ class PlanningGraph():
                 if goal_attained:
                     break
                 for state in states:
-                    if state.symbol == goal:
+                    if state.symbol == goal and state.is_pos:
                         goal_attained = True
                         level_sum += cost
                         break
