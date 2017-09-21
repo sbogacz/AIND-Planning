@@ -103,10 +103,13 @@ Unload(C2, P2, SFO)
 	was the only one where heuristics could be collected for those two, and they expanded 13 and 42 times as many nodes as the next
 	biggest expander (depth-limited search).\par
 	
-	Depth-limited search and Depth-First Graph Search both returned sub-optimal plans. On the other hand, Breadth-First Search and Uniform Cost Search
+	Depth-limited search and Depth-First Graph Search both returned sub-optimal plans, as is expected, as they are known to be neither complete, nor optimal (a summary can be found in Russel \& Norvig Section 3.4.7). On the other hand, Breadth-First Search and Uniform Cost Search
 	not only completed for every test case, but they also involved the least expansions out of the other non-heuristic based search methods. BFS was 
 	more computationaly expensive, taking more time on problems \#2 and \#3, while UCS took up more memory with more expansions, but took less time to
-	arrive to a solution. 
+	arrive to a solution. \par
+	Ultimately the choice of uninformed search strategy would depend on the problem constraints. DFGS could be a good choice in situations where we need not guarantee an optimal solution while at the same time dealing with 
+	resource constraints. On the other hand, if resources are accessible, and optimality is desired, then UCS provides an optimal solution significantly faster than BFS, 
+	the other complete and optimal search strategy. 
 \end{subsection}
 \begin{subsection}{Heuristic Search Result Comparison}
 	The five heuristic based search methods we used are listed below:
@@ -121,7 +124,8 @@ Unload(C2, P2, SFO)
 	a reasonable time frame, although there are significant tradeoffs to be considered. Greedy Best First Search and A* with the Ignore Preconditions Heuristic
 	were the two fastest methods. GBFS has a substantial edge for smaller state spaces, but that advantage dissipates rapidly as the state space grows.\par
 	GBFS did not, however, find an optimal solution in the case of Problem \#3. A* using the Level Sum Heuristic took far longer to compute (about an order of
-	magnitude) but also expanded far less nodes, by about a factor of ten. Ultimately, it seems that the trade-off would be situation dependent: are we more
+	magnitude) but also expanded far less nodes, by about a factor of ten, which makes sense, as it will give graeater weight to paths that are more rapidly converging
+	on a solution for all the goals in the goal state. Ultimately, it seems that the trade-off would be situation dependent: are we more
 	constrained by available computation time, or are we running in a memory-limited environment?\par
 
 	Overall, the heuristic-based search methods were generally more performant than the non-heuristic based search methods. Even the Level Sum heuristic,

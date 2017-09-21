@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[margin=1.00in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\title{A Brief Introduction to Distributed Planning}
+\author{Steven Bogacz}
+\date{September 2017}
+\begin{document}
+\maketitle
+\begin{section}{Introduction}
+	The issues inherent in multi-agent systems are appealing to me in general, as I spend most
+	of my time at work working on a distributed multi-agent text classifying system. In many
+	ways, we can interpret neural networks as being a way of programatticaly dealing with multi-agent
+	systems. This led me to look for overviews of multi-agent approaches in order to solve planning
+	problems. The challenges inherent in multi-agent systems stem from the need to support the 
+	interleaving of actions in order to guarantee completeness, as was pointed out by Allen Brown (Sussman, 1975).
+	This challenge is only exacerbated when we the agents are also decentralized, with no main finalizing agent
+	to aggregate the results. Furthermore, a given agent in a distributed multi-agent system 
+	isn't only concerned with the question of how to interleave its actions with those of its 
+	companions, but it must also deal with the possibiliy that each agent might view a different subset of
+	the problem space, if only partial observability can be guaranteed.\cite{bonisoli} 
+\end{section}
+\begin{section}{Developments}
+
+\end{section}
+\begin{thebibliography}{9}
+
+	\bibitem{bonisoli}
+	Andrea Bonisoli,
+	\textit{Distributed and Multi-Agent Planning: Challenges and Open Issues},
+	Universita degli Studi di Brescia,
+	Brescia, Italy
+  2013.
+  \bibitem{nissim}
+  Raz Nissim et al.,
+  \textit{A General, Fully Distributed Multi-Agent Planning Algorithm},
+  Ben-Gurion University,
+  Israel
+  2012.
+
+\end{thebibliography}
+\end{document}
