@@ -10,3 +10,5 @@ tests/.cache/v/cache/lastfailed
 *.log
 *.fml
 *latexmk
+*.fls
+*.dvi
