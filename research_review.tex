@@ -23,7 +23,28 @@
 	the problem space, if only partial observability can be guaranteed.\cite{bonisoli} 
 \end{section}
 \begin{section}{Developments}
-
+	One of the first works to start branching heavily from previous approaches is to combine distributed multi-agent
+	approaches with CSP problem solving approaches. In Nissim et al.'s work\cite{nissim} they expand on Brafman \& Domshlak's 
+	work of applying CSPs to multi-agent planning problems\cite{brafman}. They note that despite the theoretical completeness
+	of Brafman \& Domshlak's approach (as most CSP solution mechanisms often resort to some search based approach, they can
+	guarantee completeness and optimality via-BFS), the requirement of their DisCSP creates nonbinary constraints on otherwise
+	independent agents.\cite{nissim}\par
+	They use two mechanisms by which to separate variable definiton. The first is to separate the agent-specific notion of 
+	\textbf{Action Variables}, which correspond to the actions internally available to the agent, \textbf{Time Variables}, which provide 
+	ordered sequences of times when an action may be performed, and \textbf{Requirement Variables}, which provide a mechanism by
+	which external agents can satisfy the requirements for a given action. The second distinction is to extend the role of each agent in their 
+	internal planning. Rather than limiting themselves to their internally determined cootdination points (as per\cite{brafman}), they utilize
+	all private and public actions, in an "ignore preconditions"-like approach to distributed multi-agent planning. This in turn determines
+	their internal ordering of the aforementioned variables, and is refined in an action-first order as other agens report conflicts in the
+	planning.\par
+	Another novel idea in the realm of distributed multi-agent planning is the identification of heuristics which are additive across agents
+	yet retain their admissibility, i.e. they do not overestimate the cost of attaining a goal state.\cite{stolba} Specifically, these works 
+	focus on multi-agent cost-partitioning, wherein the cost of actions must be non-negative, and less than, or equal to, the actual cost of
+	a given action. This allows some information transfer between agents, while retaining relatively strong measures of privacy (although the 
+	article's authors do indicate some vagueness around weak and strong variable privacy).\cite{stolba} This idea appears to still require 
+	robust testing, but preliminary findings would appear to show promise in its applicability to various scenarious (although it appears
+	to be very sensitive to the given heuristic.
+	
 \end{section}
 \begin{thebibliography}{9}
 
@@ -33,12 +54,25 @@
 	Universita degli Studi di Brescia,
 	Brescia, Italy
   2013.
+  @ http://ceur-ws.org/Vol-1126/paper6.pdf
   \bibitem{nissim}
   Raz Nissim et al.,
   \textit{A General, Fully Distributed Multi-Agent Planning Algorithm},
   Ben-Gurion University,
   Israel
-  2012.
-
+  2010.
+  @https://www.cs.bgu.ac.il/~raznis/AAMAS2010\_0192\_dd86c6585.pdf
+  \bibitem{brafman}
+  Ronen I. Brafman \& Carmel Domshlak
+  \textit{From One to Many: Planning for Loosely Coupled Multi-Agent Systems}
+  Bun-Gurion University,
+  Israel
+  2008
+  @ https://www.aaai.org/Papers/ICAPS/2008/ICAPS08-004.pdf
+  \bibitem{stolba}
+  Michal Stolba \& Antonin Komenda
+  Department of Computer Science, Faculty of Electrical Engineering,
+  Czech Technical University in Prague, Czech Republic
+  @ http://icaps16.icaps-conference.org/proceedings/dmap16.pdf\#page=92
 \end{thebibliography}
 \end{document}
